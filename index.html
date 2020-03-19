@@ -16,19 +16,19 @@
       /* Unvisited link  */
       a {
         color: #808183;
-      } 
+      }
       /* Visited link    */
       a:visited {
         color: #808183;
-      } 
-       /* Mouse over link */
+      }
+      /* Mouse over link */
       a:hover {
         color: #ff6319;
       }
       /* Selected link   */
       a:active {
         color: #ee352e;
-      } 
+      }
 
       @-webkit-keyframes color-change {
         0% {
@@ -219,7 +219,7 @@
   <body>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <div id="title">
-      emptytra.in is here to fill the void.  <a href="/about.html">read more</a>
+      emptytra.in is here to fill the void. <a href="/about.html">read more</a>
     </div>
     <video
       id="video"
@@ -227,6 +227,21 @@
       style="width: 100%; height: 100%;"
       id="video"
     ></video>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-161254463-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-161254463-1");
+    </script>
+
     <script>
       var streamURL =
         "https://byyc6wuc77euj7.data.mediastore.us-east-1.amazonaws.com/train_1.m3u8";
