@@ -1,0 +1,255 @@
+<html>
+  <head>
+    <title>emptytra.in</title>
+    <style>
+      body {
+        background-color: black;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 16;
+        -webkit-animation: color-change 100s infinite;
+        -moz-animation: color-change 100s infinite;
+        -o-animation: color-change 100s infinite;
+        -ms-animation: color-change 100s infinite;
+        animation: color-change 100s infinite;
+      }
+
+      /* Unvisited link  */
+      a {
+        color: #808183;
+      } 
+      /* Visited link    */
+      a:visited {
+        color: #808183;
+      } 
+       /* Mouse over link */
+      a:hover {
+        color: #ff6319;
+      }
+      /* Selected link   */
+      a:active {
+        color: #ee352e;
+      } 
+
+      @-webkit-keyframes color-change {
+        0% {
+          color: #2850ad;
+        }
+        10% {
+          color: #ff6319;
+        }
+        20% {
+          color: #6cbe45;
+        }
+        30% {
+          color: #a7a9ac;
+        }
+        40% {
+          color: #996633;
+        }
+        50% {
+          color: #fccc0a;
+        }
+        60% {
+          color: #ee352e;
+        }
+        70% {
+          color: #00933c;
+        }
+        80% {
+          color: #b933ad;
+        }
+        90% {
+          color: #00add0;
+        }
+        100% {
+          color: #808183;
+        }
+      }
+      @-moz-keyframes color-change {
+        0% {
+          color: #2850ad;
+        }
+        10% {
+          color: #ff6319;
+        }
+        20% {
+          color: #6cbe45;
+        }
+        30% {
+          color: #a7a9ac;
+        }
+        40% {
+          color: #996633;
+        }
+        50% {
+          color: #fccc0a;
+        }
+        60% {
+          color: #ee352e;
+        }
+        70% {
+          color: #00933c;
+        }
+        80% {
+          color: #b933ad;
+        }
+        90% {
+          color: #00add0;
+        }
+        100% {
+          color: #808183;
+        }
+      }
+      @-ms-keyframes color-change {
+        0% {
+          color: #2850ad;
+        }
+        10% {
+          color: #ff6319;
+        }
+        20% {
+          color: #6cbe45;
+        }
+        30% {
+          color: #a7a9ac;
+        }
+        40% {
+          color: #996633;
+        }
+        50% {
+          color: #fccc0a;
+        }
+        60% {
+          color: #ee352e;
+        }
+        70% {
+          color: #00933c;
+        }
+        80% {
+          color: #b933ad;
+        }
+        90% {
+          color: #00add0;
+        }
+        100% {
+          color: #808183;
+        }
+      }
+      @-o-keyframes color-change {
+        0% {
+          color: #2850ad;
+        }
+        10% {
+          color: #ff6319;
+        }
+        20% {
+          color: #6cbe45;
+        }
+        30% {
+          color: #a7a9ac;
+        }
+        40% {
+          color: #996633;
+        }
+        50% {
+          color: #fccc0a;
+        }
+        60% {
+          color: #ee352e;
+        }
+        70% {
+          color: #00933c;
+        }
+        80% {
+          color: #b933ad;
+        }
+        90% {
+          color: #00add0;
+        }
+        100% {
+          color: #808183;
+        }
+      }
+      @keyframes color-change {
+        0% {
+          color: #2850ad;
+        }
+        10% {
+          color: #ff6319;
+        }
+        20% {
+          color: #6cbe45;
+        }
+        30% {
+          color: #a7a9ac;
+        }
+        40% {
+          color: #996633;
+        }
+        50% {
+          color: #fccc0a;
+        }
+        60% {
+          color: #ee352e;
+        }
+        70% {
+          color: #00933c;
+        }
+        80% {
+          color: #b933ad;
+        }
+        90% {
+          color: #00add0;
+        }
+        100% {
+          color: #808183;
+        }
+      }
+      video {
+        width: 100%;
+        height: 100%;
+      }
+      title {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <div id="title">
+      emptytra.in is here to fill the void.  <a href="">read more</a>
+    </div>
+    <video
+      id="video"
+      controls=""
+      style="width: 100%; height: 100%;"
+      id="video"
+    ></video>
+    <script>
+      var streamURL =
+        "https://byyc6wuc77euj7.data.mediastore.us-east-1.amazonaws.com/train_1.m3u8";
+      var video = document.getElementById("video");
+      if (Hls.isSupported()) {
+        var hls = new Hls();
+        hls.loadSource(streamURL);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED, function() {
+          video.play();
+        });
+      }
+      // hls.js is not supported on platforms that do not have Media Source Extensions (MSE) enabled.
+      // When the browser has built-in HLS support (check using `canPlayType`), we can provide an HLS manifest (i.e. .m3u8 URL) directly to the video element through the `src` property.
+      // This is using the built-in support of the plain video element, without using hls.js.
+      // Note: it would be more normal to wait on the 'canplay' event below however on Safari (where you are most likely to find built-in HLS support) the video.src URL must be on the user-driven
+      // white-list before a 'canplay' event will be emitted; the last video event that can be reliably listened-for when the URL is not on the white-list is 'loadedmetadata'.
+      else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+        video.src = streamURL;
+        video.addEventListener("loadedmetadata", function() {
+          video.play();
+        });
+      }
+    </script>
+  </body>
+</html>
